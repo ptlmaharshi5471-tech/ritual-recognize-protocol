@@ -23,7 +23,7 @@ export async function fetchProfile(username: string): Promise<FxProfile> {
     const profile: FxProfile = {
       username: u.screen_name || username,
       name: u.name || username,
-      avatar: u.avatar_url || null,
+      avatar: (u.avatar_url || "").replace("_normal.", "_400x400.") || null,
       description: u.description,
     };
     cache.set(username, profile);

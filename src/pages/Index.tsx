@@ -30,6 +30,7 @@ const Index = () => {
     setWallet,
     setBalance,
     setAuthenticated,
+    setProfile,
     setVotedUsernames,
     addVotedUsername,
     disconnect,
@@ -212,6 +213,10 @@ const Index = () => {
           display_name: existing.display_name ?? "",
           x_username: existing.x_username ?? "",
         });
+        setProfile({
+          display_name: existing.display_name,
+          x_username: existing.x_username,
+        });
       }
       try {
         const b = await getBalance(prov, addr);
@@ -242,6 +247,10 @@ const Index = () => {
           x_username: vals.x_username || null,
         })
         .eq("wallet", address);
+      setProfile({
+        display_name: vals.display_name || null,
+        x_username: vals.x_username || null,
+      });
       setStage("voting");
     } catch {
       toast.error("Couldn't save profile");
