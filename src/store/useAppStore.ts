@@ -6,10 +6,13 @@ interface AppState {
   provider: ethers.BrowserProvider | null;
   balance: string;
   authenticated: boolean;
+  xUsername: string | null;
+  displayName: string | null;
   votedUsernames: Set<string>;
   setWallet: (address: string, provider: ethers.BrowserProvider) => void;
   setBalance: (balance: string) => void;
   setAuthenticated: (v: boolean) => void;
+  setProfile: (p: { x_username?: string | null; display_name?: string | null }) => void;
   setVotedUsernames: (list: string[]) => void;
   addVotedUsername: (u: string) => void;
   disconnect: () => void;
@@ -20,10 +23,17 @@ export const useAppStore = create<AppState>((set) => ({
   provider: null,
   balance: "0",
   authenticated: false,
+  xUsername: null,
+  displayName: null,
   votedUsernames: new Set(),
   setWallet: (address, provider) => set({ address, provider }),
   setBalance: (balance) => set({ balance }),
   setAuthenticated: (v) => set({ authenticated: v }),
+  setProfile: (p) =>
+    set({
+      xUsername: p.x_username ?? null,
+      displayName: p.display_name ?? null,
+    }),
   setVotedUsernames: (list) => set({ votedUsernames: new Set(list) }),
   addVotedUsername: (u) =>
     set((s) => {
@@ -37,6 +47,8 @@ export const useAppStore = create<AppState>((set) => ({
       provider: null,
       balance: "0",
       authenticated: false,
+      xUsername: null,
+      displayName: null,
       votedUsernames: new Set(),
     }),
 }));
