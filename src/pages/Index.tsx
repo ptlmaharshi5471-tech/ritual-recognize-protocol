@@ -167,6 +167,8 @@ const Index = () => {
     if (stage !== "voting") return;
     if (remainingProfiles.length === 0) {
       setCurrentProfile(null);
+      setProfileLoading(false);
+      setVoting(null);
       return;
     }
     const next = remainingProfiles[0];
