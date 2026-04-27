@@ -14,7 +14,54 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      users: {
+        Row: {
+          created_at: string
+          display_name: string | null
+          wallet: string
+          x_username: string | null
+        }
+        Insert: {
+          created_at?: string
+          display_name?: string | null
+          wallet: string
+          x_username?: string | null
+        }
+        Update: {
+          created_at?: string
+          display_name?: string | null
+          wallet?: string
+          x_username?: string | null
+        }
+        Relationships: []
+      }
+      votes: {
+        Row: {
+          created_at: string
+          id: string
+          recognized: boolean
+          tx_hash: string | null
+          username: string
+          wallet: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          recognized: boolean
+          tx_hash?: string | null
+          username: string
+          wallet: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          recognized?: boolean
+          tx_hash?: string | null
+          username?: string
+          wallet?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
