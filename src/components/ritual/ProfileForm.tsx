@@ -25,47 +25,49 @@ export function ProfileForm({
       animate={{ opacity: 1, y: 0 }}
       className="container max-w-md py-12"
     >
-      <div className="glass rounded-3xl p-8">
-        <h2 className="text-2xl font-bold mb-1">Welcome 👋</h2>
+      <div className="panel rounded-2xl p-8">
+        <h2 className="text-2xl font-bold mb-1 tracking-tight">
+          Welcome to <span className="text-gradient">Ritual</span>
+        </h2>
         <p className="text-sm text-muted-foreground mb-6">
           Optionally tell us who you are. You can skip this.
         </p>
 
         <div className="space-y-4">
           <div>
-            <Label htmlFor="display">Display name</Label>
+            <Label htmlFor="display" className="text-xs uppercase tracking-wider text-muted-foreground">Display name</Label>
             <Input
               id="display"
               maxLength={50}
               placeholder="Satoshi"
               value={display}
               onChange={(e) => setDisplay(e.target.value)}
-              className="mt-1.5 bg-secondary/40 border-border/60"
+              className="mt-1.5 bg-secondary/60 border-neon-green/15 focus-visible:ring-neon-green/40 focus-visible:border-neon-green/50"
             />
           </div>
           <div>
-            <Label htmlFor="x">X username</Label>
+            <Label htmlFor="x" className="text-xs uppercase tracking-wider text-muted-foreground">X username</Label>
             <Input
               id="x"
               maxLength={30}
               placeholder="@yourhandle"
               value={x}
               onChange={(e) => setX(e.target.value)}
-              className="mt-1.5 bg-secondary/40 border-border/60"
+              className="mt-1.5 bg-secondary/60 border-neon-green/15 focus-visible:ring-neon-green/40 focus-visible:border-neon-green/50"
             />
           </div>
 
           <div className="flex gap-2 pt-2">
             <Button
               variant="outline"
-              className="flex-1"
+              className="flex-1 border-neon-green/20 hover:border-neon-green/50 hover:bg-neon-green/5"
               onClick={() => onSubmit({ display_name: "", x_username: "" })}
               disabled={saving}
             >
               Skip
             </Button>
             <Button
-              className="flex-1 bg-gradient-brand text-white shadow-glow hover:opacity-90"
+              className="flex-1 bg-neon-green text-primary-foreground font-semibold shadow-glow hover:bg-neon-green/90"
               onClick={() =>
                 onSubmit({
                   display_name: display.trim(),
