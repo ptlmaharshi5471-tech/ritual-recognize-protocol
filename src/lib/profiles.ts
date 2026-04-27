@@ -1,0 +1,20 @@
+export const PROFILES: string[] = [
+  "MathsonArt","Gnuhtan","jany268","Mido_269","0xgokdeniz","fedorcenko50682",
+  "SorokotiahaD","ZhugeLyang","wlstn7189","nft_hinata_eth","cass0dan","mongdiny7",
+  "ericgudboy","dter_neil","hannah_tran35","linh_ricky","Tuna_bbh","Dodori4390",
+  "nftdaniyel","DimkatG","edward_evm","fishfish5771","faenfts","fairytothemoon",
+  "memme_25","Friscovsky","Gh9st999","girin0505","Gr1mmJ4w","Guruji0335",
+  "herbcase7","pddprof","Intuitionweb3","jasm1ne_eth","AbrahamJT9","jepannyaa",
+  "Jez_Cryptoz","jiabtc","seyoj7","Kash_060","KeithbmBG","kenshinxatori",
+  "Alex12927978","Linazhou5542","WEB3_MG","Majorproject5","Devarshi8539",
+  "orji_marcellus","cryptomaxiq","meison_mswen","MiReTu","MVeselyk",
+  "nikitatechnik","321_neo123","Oluwasegun1334","Orpheuskaze","0xOsaragi",
+  "Pdbullbear","PixelSect","pushkinevgeni","raysonsiosol","RGorlac","tanjiro3060",
+  "Truefitmen","ucanseeofficial","andrey_versus","nlabplay","Anna272493",
+  "antgeo13","hero569715","bruceBravogo","0xdabid","dimakuncik","CrPlug",
+  "hanriiiver","havelaw11","hoangthao123313","hurlxrr","johntolll","juli_not_julie",
+  "vekariya_kenil","Madrii_dd","moooo_iii","moc_tx89","MOONSEO_","n1nja_011",
+  "0xlinkevm","silverwave1000","sol_defi","solncestoyaniee","synedclover",
+  "theProcessXCII","innerpeace300","whitesocks256","wallets12_lee","eth_apple",
+  "0xitoshi_","Ju1i_crypto","alpha_0x01","1_D_L_E"
+];
