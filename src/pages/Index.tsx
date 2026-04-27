@@ -240,20 +240,28 @@ const Index = () => {
     if (!address) return;
     setSavingProfile(true);
     try {
-      await supabase
+      const { error } = await supabase
         .from("users")
         .update({
           display_name: vals.display_name || null,
           x_username: vals.x_username || null,
         })
         .eq("wallet", address);
+      
+      // Check for errors before proceeding
+      if (error) {
+        toast.error("Couldn't save profile", { description: error.message });
+        return;
+      }
+      
       setProfile({
         display_name: vals.display_name || null,
         x_username: vals.x_username || null,
       });
       setStage("voting");
-    } catch {
-      toast.error("Couldn't save profile");
+    } catch (e: any) {
+      const msg = e?.message || "Couldn't save profile";
+      toast.error("Profile save failed", { description: msg });
     } finally {
       setSavingProfile(false);
     }
@@ -267,6 +275,7 @@ const Index = () => {
     try {
       // 1) On-chain
       const { txHash } = await submitVoteOnChain(provider, username, recognized);
+      
       // 2) Save to Supabase (realtime fans this out to everyone)
       const { error } = await supabase.from("votes").insert({
         wallet: address,
@@ -274,9 +283,12 @@ const Index = () => {
         recognized,
         tx_hash: txHash,
       });
+      
+      // Check for errors after submitting vote
       if (error && !/duplicate|unique/i.test(error.message)) {
         throw error;
       }
+      
       addVotedUsername(username);
       toast.success(recognized ? "Recognised ✨" : "Vote recorded", {
         description: `tx ${txHash.slice(0, 10)}…`,
